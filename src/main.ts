@@ -42,7 +42,7 @@ async function executeOutdated(
     executeDirectory: string | null,
     option: Option
 ): Promise<OutdatedPackage[]> {
-    const execOption: ExecOptions = { failOnStdErr: true };
+    const execOption: ExecOptions = {};
     if (executeDirectory != null) {
         execOption.cwd = executeDirectory;
     }
