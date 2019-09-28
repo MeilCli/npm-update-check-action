@@ -1,0 +1,25 @@
+name: 'npm update checker'
+description: 'npm new packeage version checker'
+author: 'MeilCli'
+branding:
+  icon: arrow-up
+  color: blue
+inputs:
+  execute_directories:
+    description: 'execute directories of npm outdated command'
+  depth:
+    description: 'max depth for checking dependency tree'
+  output_text_style:
+    description: 'output text style, value: short or long'
+    required: true
+    default: "short"
+outputs:
+  has_npm_update:
+    description: 'has new package version information'
+  npm_update_text:
+    description: 'new package version information text, styled by output_text_style'
+  npm_update_json:
+    description: 'new package version information json'
+runs:
+  using: 'node12'
+  main: 'lib/main.js'
