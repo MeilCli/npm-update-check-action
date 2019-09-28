@@ -1,4 +1,5 @@
 # npm-update-check-action
+![](https://github.com/MeilCli/npm-update-check-action/workflows/CI/badge.svg)  
 JavaScript based npm new package version check action for GitHub Actions.
 
 ## Required
@@ -19,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - run: npm install
-    - uses: MeilCli/npm-update-check-action@master
+    - uses: MeilCli/npm-update-check-action@v1
       id: outdated
     - uses: 8398a7/action-slack@v2
       if: steps.outdated.outputs.has_npm_update != 'false'
