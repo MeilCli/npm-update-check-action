@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest",
-    "lint": "eslint src/main.ts src/json.ts"
+    "lint": "eslint src/**/*.ts"
   },
   "keywords": [],
   "author": "",
