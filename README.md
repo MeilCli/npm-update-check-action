@@ -44,7 +44,7 @@ jobs:
 - `output_text_style`
   - optional
   - output text style
-  - value: `short` or `long`
+  - value: `short` or `long`, default: `short`
 
 ## output
 - `has_npm_update`
