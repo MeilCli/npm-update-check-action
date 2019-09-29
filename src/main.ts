@@ -68,7 +68,7 @@ function convertToOutputText(
     outdatedPackages: OutdatedPackage[],
     option: Option
 ): string {
-    if (option.outputTextStyle == "long") {
+    if (option.outputTextStyle == "short") {
         let result = "";
         for (const outdatedPackage of outdatedPackages) {
             if (0 < result.length) {
