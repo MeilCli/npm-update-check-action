@@ -1,5 +1,5 @@
 name: 'npm update checker'
-description: 'npm new packeage version checker'
+description: 'npm new package version checker'
 author: 'MeilCli'
 branding:
   icon: arrow-up
