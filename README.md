@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - run: npm install
-    - uses: MeilCli/npm-update-check-action@v2
+    - uses: MeilCli/npm-update-check-action@v3
       id: outdated
     - uses: 8398a7/action-slack@v2
       if: steps.outdated.outputs.has_npm_update != 'false'
