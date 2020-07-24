@@ -1,6 +1,6 @@
 # npm-update-check-action
 ![](https://github.com/MeilCli/npm-update-check-action/workflows/CI/badge.svg)  
-JavaScript based npm new package version check action for GitHub Actions.
+npm new package version check action for GitHub Actions.
 
 ## Required
 This action must execute after `npm install` for your dependencies.
@@ -20,7 +20,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - run: npm install
-    - uses: MeilCli/npm-update-check-action@v3
+    - uses: MeilCli/npm-update-check-action@v4
       id: outdated
     - uses: 8398a7/action-slack@v2
       if: steps.outdated.outputs.has_npm_update != 'false'
@@ -32,6 +32,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
+You can also pin to a [specific release](https://github.com/MeilCli/npm-update-check-action/releases) version in the format `@v4.x.x`
 
 ## input
 - `execute_directories`
