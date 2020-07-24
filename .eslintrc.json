@@ -6,9 +6,7 @@
         "plugin:prettier/recommended",
         "prettier/@typescript-eslint"
     ],
-    "plugins": [
-        "@typescript-eslint"
-    ],
+    "plugins": ["@typescript-eslint"],
     "env": {
         "node": true,
         "es6": true
@@ -16,14 +14,18 @@
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
         "sourceType": "module",
-        "project": "./tsconfig.json"
+        "project": "./tsconfig.eslint.json"
     },
     "rules": {
+        "no-empty-function": "off",
+        "@typescript-eslint/no-empty-function": ["off"],
+        "@typescript-eslint/explicit-module-boundary-types": "off",
         "@typescript-eslint/explicit-function-return-type": "off",
         "prettier/prettier": [
             "error",
             {
-                "tabWidth": 4
+                "tabWidth": 4,
+                "endOfLine": "auto"
             }
         ]
     }
