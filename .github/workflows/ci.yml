@@ -48,7 +48,7 @@ jobs:
           npm install
         env:
           CI: true
-      - uses: MeilCli/danger-action@v1
+      - uses: MeilCli/danger-action@v5
         with:
           plugins_file: 'Gemfile'
           danger_file: 'Dangerfile'
