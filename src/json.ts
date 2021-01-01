@@ -20,7 +20,7 @@ export function toOutdatedPackages(value: string): OutdatedPackage[] {
     const json = JSON.parse(value);
     const map = new Map<string, Package>();
 
-    Object.keys(json).map(x => {
+    Object.keys(json).map((x) => {
         map.set(x, json[x] as Package);
     });
 
@@ -31,7 +31,7 @@ export function toOutdatedPackages(value: string): OutdatedPackage[] {
             current: value.current,
             wanted: value.wanted,
             latest: value.latest,
-            homepage: value.homepage
+            homepage: value.homepage,
         });
     });
 

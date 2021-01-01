@@ -15,7 +15,7 @@ async function getOption(): Promise<Option> {
     let executeDirectories: string[] | null = core
         .getInput("execute_directories")
         .split(os.EOL)
-        .map(x => x.trim());
+        .map((x) => x.trim());
     if (executeDirectories.length == 1 && executeDirectories[0].length == 0) {
         executeDirectories = null;
     }
@@ -30,7 +30,7 @@ async function getOption(): Promise<Option> {
     return {
         executeDirectories: executeDirectories,
         depth: depth,
-        outputTextStyle: outputTextStyle == "long" ? "long" : "short"
+        outputTextStyle: outputTextStyle == "long" ? "long" : "short",
     };
 }
 
@@ -38,10 +38,7 @@ async function checkEnvironment() {
     await io.which("npm", true);
 }
 
-async function executeOutdated(
-    executeDirectory: string | null,
-    option: Option
-): Promise<OutdatedPackage[]> {
+async function executeOutdated(executeDirectory: string | null, option: Option): Promise<OutdatedPackage[]> {
     const execOption: ExecOptions = { ignoreReturnCode: true };
     if (executeDirectory != null) {
         execOption.cwd = executeDirectory;
@@ -51,7 +48,7 @@ async function executeOutdated(
     execOption.listeners = {
         stdout: (data: Buffer) => {
             stdout += data.toString();
-        }
+        },
     };
 
     const args = ["--long", "--json"];
@@ -64,10 +61,7 @@ async function executeOutdated(
     return toOutdatedPackages(stdout);
 }
 
-function convertToOutputText(
-    outdatedPackages: OutdatedPackage[],
-    option: Option
-): string {
+function convertToOutputText(outdatedPackages: OutdatedPackage[], option: Option): string {
     if (option.outputTextStyle == "short") {
         let result = "";
         for (const outdatedPackage of outdatedPackages) {
@@ -97,14 +91,11 @@ async function run() {
         const result: OutdatedPackage[] = [];
         if (option.executeDirectories == null) {
             const packages = await executeOutdated(null, option);
-            packages.forEach(x => result.push(x));
+            packages.forEach((x) => result.push(x));
         } else {
             for (const executeDirectory of option.executeDirectories) {
-                const packages = await executeOutdated(
-                    executeDirectory,
-                    option
-                );
-                packages.forEach(x => result.push(x));
+                const packages = await executeOutdated(executeDirectory, option);
+                packages.forEach((x) => result.push(x));
             }
         }
 
