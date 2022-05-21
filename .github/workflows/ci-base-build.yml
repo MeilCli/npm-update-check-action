@@ -1,0 +1,41 @@
+on:
+  workflow_call:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - uses: actions/cache@v2
+        with:
+          path: node_modules
+          key: ${{ runner.OS }}-build-${{ hashFiles('package.json') }}-${{ hashFiles('package-lock.json') }}
+          restore-keys: |
+            ${{ runner.OS }}-build-${{ hashFiles('package.json') }}-
+            ${{ runner.OS }}-build-
+      - run: npm install
+      - run: npm run build
+      - run: npm run test
+      - run: npm run lint:report
+        continue-on-error: true
+      - uses: actions/upload-artifact@v3
+        with:
+          name: result
+          path: |
+            eslint_report.json
+      - run: npm run pack
+        if: github.event_name != 'pull_request'
+      - name: Create Pull Request
+        if: github.event_name != 'pull_request'
+        uses: peter-evans/create-pull-request@v3
+        with:
+          token: ${{ secrets.MEILCLI_BOT }}
+          commit-message: 'update actions'
+          title: 'update actions'
+          labels: 'Action'
+          assignees: 'MeilCli'
+          reviewers: 'MeilCli'
+          branch: 'update/action'
