@@ -1,5 +1,5 @@
 # npm-update-check-action
-![](https://github.com/MeilCli/npm-update-check-action/workflows/CI/badge.svg)  
+[![CI-Master](https://github.com/MeilCli/npm-update-check-action/actions/workflows/ci-master.yml/badge.svg)](https://github.com/MeilCli/npm-update-check-action/actions/workflows/ci-master.yml)  
 npm new package version check action for GitHub Actions.
 
 ## Required
