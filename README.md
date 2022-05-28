@@ -56,8 +56,11 @@ You can also pin to a [specific release](https://github.com/MeilCli/npm-update-c
 - `npm_update_json`
   - new package version information json
 
-## Contributing
+## Contributes
+[<img src="https://gist.github.com/MeilCli/025c2c75e8af0e8c3a38f3afdb9bbed3/raw/7891a19b834b96fe89940c07691e0d0ffca2999d/metrics_contributors.svg">](https://github.com/MeilCli/npm-update-check-action/graphs/contributors)
+
+### Could you want to contribute?
 see [Contributing.md](./.github/CONTRIBUTING.md)
 
 ## License
-[MIT License](LICENSE).
+[<img src="https://gist.github.com/MeilCli/025c2c75e8af0e8c3a38f3afdb9bbed3/raw/7891a19b834b96fe89940c07691e0d0ffca2999d/metrics_licenses.svg">](LICENSE)
