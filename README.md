@@ -18,9 +18,9 @@ jobs:
   npm:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
+    - uses: actions/checkout@v4
     - run: npm install
-    - uses: MeilCli/npm-update-check-action@v4
+    - uses: MeilCli/npm-update-check-action@v5
       id: outdated
     - uses: 8398a7/action-slack@v2
       if: steps.outdated.outputs.has_npm_update != 'false'
@@ -32,7 +32,7 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
 ```
-You can also pin to a [specific release](https://github.com/MeilCli/npm-update-check-action/releases) version in the format `@v4.x.x`
+You can also pin to a [specific release](https://github.com/MeilCli/npm-update-check-action/releases) version in the format `@v5.x.x`
 
 ## input
 - `execute_directories`
